@@ -6,10 +6,11 @@
       "size": "micro",
       "hero": {
         "type": "image",
-        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip10.jpg",
+        "url": "https://www.hellopeter.com.tw/themes/zy001/img/mykey_1.jpg",
         "size": "full",
         "aspectMode": "cover",
-        "aspectRatio": "320:213"
+        "aspectRatio": "320:213",
+        "align": "center"
       },
       "body": {
         "type": "box",
@@ -17,7 +18,7 @@
         "contents": [
           {
             "type": "text",
-            "text": "Brown Cafe",
+            "text": "玉山動物醫院",
             "weight": "bold",
             "size": "sm",
             "wrap": true
@@ -53,7 +54,7 @@
               },
               {
                 "type": "text",
-                "text": "4.0",
+                "text": "4.6",
                 "size": "xs",
                 "color": "#8c8c8c",
                 "margin": "md",
@@ -72,7 +73,7 @@
                 "contents": [
                   {
                     "type": "text",
-                    "text": "東京旅行",
+                    "text": "動物醫院",
                     "wrap": true,
                     "color": "#8c8c8c",
                     "size": "xs",
@@ -85,6 +86,11 @@
         ],
         "spacing": "sm",
         "paddingAll": "13px"
+      },
+      "action": {
+        "type": "uri",
+        "label": "action",
+        "uri": "https://goo.gl/maps/fasRHkymij1bfp377"
       }
     },
     {
@@ -92,7 +98,7 @@
       "size": "micro",
       "hero": {
         "type": "image",
-        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip11.jpg",
+        "url": "https://blog.hamibook.com.tw/wp-content/uploads/2022/05/%E5%BF%AB%E8%AE%80_%E5%95%86%E6%A5%AD%E5%91%A8%E5%88%8A%E7%AC%AC1800%E6%9C%9F_%E9%80%A3%E4%B8%80%E9%A1%86%E6%8A%97%E7%94%9F%E7%B4%A0%E9%83%BD%E8%A6%81%E8%B5%B0%E7%A7%81%EF%BC%81%E6%8F%AD%E7%8D%B8%E9%86%AB%E7%95%8C%E3%80%8C%E8%A2%AB%E8%BF%AB%E9%81%95%E6%B3%95%E3%80%8D%E7%9C%9F%E7%9B%B8_001.jpg",
         "size": "full",
         "aspectMode": "cover",
         "aspectRatio": "320:213"
@@ -103,7 +109,7 @@
         "contents": [
           {
             "type": "text",
-            "text": "Brow&Cony's Restaurant",
+            "text": "愛心動物醫院(台北市)",
             "weight": "bold",
             "size": "sm",
             "wrap": true
@@ -139,7 +145,7 @@
               },
               {
                 "type": "text",
-                "text": "4.0",
+                "text": "4.6",
                 "size": "sm",
                 "color": "#8c8c8c",
                 "margin": "md",
@@ -158,7 +164,7 @@
                 "contents": [
                   {
                     "type": "text",
-                    "text": "東京旅行",
+                    "text": "動物醫院",
                     "wrap": true,
                     "color": "#8c8c8c",
                     "size": "xs",
@@ -171,6 +177,11 @@
         ],
         "spacing": "sm",
         "paddingAll": "13px"
+      },
+      "action": {
+        "type": "uri",
+        "label": "action",
+        "uri": "https://goo.gl/maps/wpgEtKacWXE16kLj6"
       }
     },
     {
@@ -178,7 +189,7 @@
       "size": "micro",
       "hero": {
         "type": "image",
-        "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip12.jpg",
+        "url": "https://i2.wp.com/taiwan17go.com/wp-content/uploads/2017/10/2017-10-31_163933.jpg?fit=640%2C427&ssl=1",
         "size": "full",
         "aspectMode": "cover",
         "aspectRatio": "320:213"
@@ -189,7 +200,7 @@
         "contents": [
           {
             "type": "text",
-            "text": "Tata",
+            "text": "欣欣動物醫院",
             "weight": "bold",
             "size": "sm"
           },
@@ -224,7 +235,7 @@
               },
               {
                 "type": "text",
-                "text": "4.0",
+                "text": "4.9",
                 "size": "sm",
                 "color": "#8c8c8c",
                 "margin": "md",
@@ -243,7 +254,7 @@
                 "contents": [
                   {
                     "type": "text",
-                    "text": "東京旅行",
+                    "text": "動物醫院",
                     "wrap": true,
                     "color": "#8c8c8c",
                     "size": "xs",
@@ -256,8 +267,12 @@
         ],
         "spacing": "sm",
         "paddingAll": "13px"
+      },
+      "action": {
+        "type": "uri",
+        "label": "action",
+        "uri": "https://goo.gl/maps/FnXtPydE4QTMbeyn9"
       }
     }
-  ],
-  "altText": "carousel"
+  ]
 }
