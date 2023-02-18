@@ -82,15 +82,15 @@ def handle_message(event):
 
         reply = [TextSendMessage(text=reply_msg)]
 
-        if re.search(['獸醫','醫院'], reply_msg):
+        if re.search('獸醫|動物醫療中心|寵物診所|獸醫診所', reply_msg):
             locationMessage = json.load(open('./api/location.json','r',encoding='utf-8'))
             reply.append(FlexSendMessage('profile', locationMessage))
 
-        if re.search(['公園'], reply_msg):
+        if re.search('寵物公園|生態公園|森林公園', reply_msg):
             parkMessage = json.load(open('./api/park.json','r',encoding='utf-8'))
             reply.append(FlexSendMessage('profile', parkMessage))
 
-        if re.search(['商店'], reply_msg):
+        if re.search('寵物用品|寵物食品|寵物玩具|寵物保健|寵物美容', reply_msg):
             shopMessage = json.load(open('./api/shop.json','r',encoding='utf-8'))
             reply.append(FlexSendMessage('profile', shopMessage))
 
