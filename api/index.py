@@ -82,7 +82,7 @@ def handle_message(event):
 
         reply = [TextSendMessage(text=reply_msg)]
 
-        if re.search('獸醫|動物醫療中心|寵物診所|獸醫診所', reply_msg):
+        if re.search('獸醫|動物醫療中心|寵物診所|獸醫診所|醫療', reply_msg):
             locationMessage = json.load(open('./api/location.json','r',encoding='utf-8'))
             reply.append(FlexSendMessage('profile', locationMessage))
 
