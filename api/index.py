@@ -1,11 +1,12 @@
 from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
-from linebot.models import MessageEvent,LocationSendMessage, TextMessage, TextSendMessage,FlexSendMessage
+from linebot.models import MessageEvent,LocationSendMessage, TextMessage, TextSendMessage, FlexSendMessage
 from api.chatgpt import ChatGPT
 
 import json
 import os
+import re
 
 line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
 line_handler = WebhookHandler(os.getenv("LINE_CHANNEL_SECRET"))
@@ -78,9 +79,16 @@ def handle_message(event):
         chatgpt.add_msg(f"HUMAN:{event.message.text}?\n")
         reply_msg = chatgpt.get_response().replace("AI:", "", 1)
         chatgpt.add_msg(f"AI:{reply_msg}\n")
+
+        reply = [TextSendMessage(text=reply_msg)]
+
+        if re.search('獸醫', reply_msg):
+            FlexMessage = json.load(open('./api/location.json','r',encoding='utf-8'))
+            reply.append(FlexSendMessage('profile', FlexMessage))
+
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text=reply_msg))
+            reply)
 
 
 if __name__ == "__main__":
