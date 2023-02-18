@@ -57,7 +57,7 @@ def handle_message(event):
             longitude=121.5639799)
         line_bot_api.reply_message(
             event.reply_token,
-            location_message)
+            [location_message,location_message])
         return
 
     if event.message.text == "卡片":
