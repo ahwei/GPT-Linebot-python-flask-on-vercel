@@ -52,10 +52,9 @@ def handle_message(event):
 
         location_message = LocationSendMessage(
             title='my location',
-            address='Tokyo',
-            latitude=35.65910807942215,
-            longitude=139.70372892916203)
-
+            address='Taiwan',
+            latitude=25.0409168,
+            longitude=121.5639799,20.29)
         line_bot_api.reply_message(
             event.reply_token,
             location_message)
