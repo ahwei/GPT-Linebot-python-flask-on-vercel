@@ -1,9 +1,10 @@
 from flask import Flask, request, abort
 from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError
-from linebot.models import MessageEvent,LocationSendMessage, TextMessage, TextSendMessage
+from linebot.models import MessageEvent,LocationSendMessage, TextMessage, TextSendMessage,FlexSendMessage
 from api.chatgpt import ChatGPT
 
+import json
 import os
 
 line_bot_api = LineBotApi(os.getenv("LINE_CHANNEL_ACCESS_TOKEN"))
@@ -48,16 +49,24 @@ def handle_message(event):
     
     if event.message.text == "地圖":
         working_status = True
+
         location_message = LocationSendMessage(
             title='my location',
             address='Tokyo',
             latitude=35.65910807942215,
             longitude=139.70372892916203)
+
         line_bot_api.reply_message(
             event.reply_token,
             location_message)
         return
 
+    if event.message.text == "卡片":
+        working_status = True
+
+        FlexMessage = json.load(open('../data/loaction.json','r',encoding='utf-8'))
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile',FlexMessage))
+        return
      
 
     if event.message.text == "閉嘴":
