@@ -65,7 +65,7 @@ def handle_message(event):
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text="請稍等一下 ^_^ "))
-        FlexMessage = json.load(open('../data/location.json','r',encoding='utf-8'))
+        FlexMessage = json.load(open('./location.json','r',encoding='utf-8'))
         line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile',FlexMessage))
         return
      
