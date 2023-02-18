@@ -45,6 +45,13 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text="我可以說話囉，歡迎來跟我互動 ^_^ "))
         return
+    
+    if event.message.text == "68":
+        working_status = True
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="68太郎是劉邦太^_^ "))
+        return
 
     if event.message.text == "閉嘴":
         working_status = False
