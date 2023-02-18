@@ -82,9 +82,18 @@ def handle_message(event):
 
         reply = [TextSendMessage(text=reply_msg)]
 
-        if re.search('獸醫', reply_msg):
-            FlexMessage = json.load(open('./api/location.json','r',encoding='utf-8'))
-            reply.append(FlexSendMessage('profile', FlexMessage))
+        if re.search(['獸醫','醫院'], reply_msg):
+            locationMessage = json.load(open('./api/location.json','r',encoding='utf-8'))
+            reply.append(FlexSendMessage('profile', locationMessage))
+
+        if re.search(['公園'], reply_msg):
+            parkMessage = json.load(open('./api/park.json','r',encoding='utf-8'))
+            reply.append(FlexSendMessage('profile', parkMessage))
+
+        if re.search(['商店'], reply_msg):
+            shopMessage = json.load(open('./api/shop.json','r',encoding='utf-8'))
+            reply.append(FlexSendMessage('profile', shopMessage))
+
 
         line_bot_api.reply_message(
             event.reply_token,
