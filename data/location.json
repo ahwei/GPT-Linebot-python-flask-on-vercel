@@ -258,5 +258,6 @@
         "paddingAll": "13px"
       }
     }
-  ]
+  ],
+  "altText": "carousel"
 }
