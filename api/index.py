@@ -76,7 +76,7 @@ def handle_message(event):
         return
 
     if working_status:
-        chatgpt.add_msg(f"你非常愛護動物，你會站在動物的立場為他著想:{event.message.text}?\n")
+        chatgpt.add_msg(f"你非常愛護動物，你會站在動物的立場為他著想，並且只會回答寵物相關問題，以下是我的問題:{event.message.text}?\n")
         reply_msg = chatgpt.get_response().replace("AI:", "", 1)
         chatgpt.add_msg(f"AI:{reply_msg}\n")
 
@@ -86,11 +86,11 @@ def handle_message(event):
             locationMessage = json.load(open('./api/location.json','r',encoding='utf-8'))
             reply.append(FlexSendMessage('profile', locationMessage))
 
-        if re.search('寵物公園|生態公園|森林公園|運動', reply_msg):
+        if re.search('公園|運動|跑步|心情', reply_msg):
             parkMessage = json.load(open('./api/park.json','r',encoding='utf-8'))
             reply.append(FlexSendMessage('profile', parkMessage))
 
-        if re.search('寵物用品|寵物食品|寵物玩具|寵物保健|寵物美容', reply_msg):
+        if re.search('寵物用品|寵物食品|寵物玩具|寵物保健|寵物美容|飲食|用品|用具', reply_msg):
             shopMessage = json.load(open('./api/shop.json','r',encoding='utf-8'))
             reply.append(FlexSendMessage('profile', shopMessage))
 
