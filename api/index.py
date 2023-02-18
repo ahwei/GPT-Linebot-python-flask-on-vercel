@@ -63,7 +63,7 @@ def handle_message(event):
     if event.message.text == "卡片":
         working_status = True
 
-        FlexMessage = json.load(open('../data/loaction.json','r',encoding='utf-8'))
+        FlexMessage = json.load(open('../data/location.json','r',encoding='utf-8'))
         line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile',FlexMessage))
         return
      
