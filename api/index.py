@@ -76,11 +76,18 @@ def handle_message(event):
         return
 
     if working_status:
-        chatgpt.add_msg(f"你非常愛護動物，你會站在動物的立場為他著想，並且只會回答寵物相關問題，以下是我的問題:{event.message.text}?\n")
-        reply_msg = chatgpt.get_response().replace("AI:", "", 1)
-        chatgpt.add_msg(f"AI:{reply_msg}\n")
-
         reply = [TextSendMessage(text=reply_msg)]
+        try:                    
+            chatgpt.add_msg(f"你非常愛護動物，你會站在動物的立場為他著想，並且只會回答寵物相關問題，以下是我的問題:{event.message.text}?\n")
+            reply_msg = chatgpt.get_response().replace("AI:", "", 1)
+            chatgpt.add_msg(f"AI:{reply_msg}\n")
+            reply.append(TextSendMessage(text=reply_msg))
+        except:                   
+            reply.append(TextSendMessage(text='超過GPT使用次數，請稍後再試。'))
+
+       
+
+        
 
         if re.search('獸醫|動物醫療中心|寵物診所|獸醫診所|醫療', reply_msg):
             locationMessage = json.load(open('./api/location.json','r',encoding='utf-8'))
