@@ -76,9 +76,9 @@ def handle_message(event):
         return
 
     if working_status:
-        reply = [TextSendMessage(text=reply_msg)]
+        reply = []
         try:                    
-            chatgpt.add_msg(f"你非常愛護動物，你會站在動物的立場為他著想，並且只會回答寵物相關問題，以下是我的問題:{event.message.text}?\n")
+            chatgpt.add_msg(f"你非常愛護動物，並且只會回答寵物相關問題，以下是我的問題:{event.message.text}?\n")
             reply_msg = chatgpt.get_response().replace("AI:", "", 1)
             chatgpt.add_msg(f"AI:{reply_msg}\n")
             reply.append(TextSendMessage(text=reply_msg))
