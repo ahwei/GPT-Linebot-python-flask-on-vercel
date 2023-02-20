@@ -82,6 +82,18 @@ def handle_message(event):
             reply_msg = chatgpt.get_response().replace("AI:", "", 1)
             chatgpt.add_msg(f"AI:{reply_msg}\n")
             reply.append(TextSendMessage(text=reply_msg))
+            
+            if re.search('獸醫|動物醫療中心|寵物診所|獸醫診所|醫療', reply_msg):
+                locationMessage = json.load(open('./api/location.json','r',encoding='utf-8'))
+                reply.append(FlexSendMessage('profile', locationMessage))
+
+            if re.search('公園|運動|跑步|心情', reply_msg):
+                parkMessage = json.load(open('./api/park.json','r',encoding='utf-8'))
+                reply.append(FlexSendMessage('profile', parkMessage))
+
+            if re.search('寵物用品|寵物食品|寵物玩具|寵物保健|寵物美容|飲食|用品|用具', reply_msg):
+                shopMessage = json.load(open('./api/shop.json','r',encoding='utf-8'))
+                reply.append(FlexSendMessage('profile', shopMessage))
         except:                   
             reply.append(TextSendMessage(text='超過GPT使用次數，請稍後再試。'))
 
@@ -89,17 +101,7 @@ def handle_message(event):
 
         
 
-        if re.search('獸醫|動物醫療中心|寵物診所|獸醫診所|醫療', reply_msg):
-            locationMessage = json.load(open('./api/location.json','r',encoding='utf-8'))
-            reply.append(FlexSendMessage('profile', locationMessage))
-
-        if re.search('公園|運動|跑步|心情', reply_msg):
-            parkMessage = json.load(open('./api/park.json','r',encoding='utf-8'))
-            reply.append(FlexSendMessage('profile', parkMessage))
-
-        if re.search('寵物用品|寵物食品|寵物玩具|寵物保健|寵物美容|飲食|用品|用具', reply_msg):
-            shopMessage = json.load(open('./api/shop.json','r',encoding='utf-8'))
-            reply.append(FlexSendMessage('profile', shopMessage))
+        
 
 
         line_bot_api.reply_message(
